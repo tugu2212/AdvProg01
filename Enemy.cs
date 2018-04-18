@@ -32,21 +32,7 @@ public class Enemy : MonoBehaviour {
 		transform.Translate (Vector3.forward * 1 * Time.deltaTime);
 		 
 		} 
-	void Move(){
+	void OnTriggerEnter(Collider other){
+		Debug.Log ("Trigger");
 	}
-	void ChangeRed(){
-			gameObject.GetComponent<Renderer> ().material.color = Color.red;
-	 
-	}
-	void MoveForward(){
-		gameObject.transform.Translate (Vector3.right * moveSpeed * Time.deltaTime);
-	}
-	void MoveBackward(){
-		gameObject.transform.Translate (Vector3.left * moveSpeed * Time.deltaTime);
-	}
-	void Rotate(){
-		gameObject.transform.Rotate (Vector3.up, turnSpeed * Time.deltaTime);
-	}
-
-		
 }
