@@ -20,6 +20,15 @@ public class DayNight : MonoBehaviour {
 
 	public int speed;
 
+	void Start()
+	{
+		Sun = gameObject.GetComponent<Light> ();
+		intensity = Sun.intensity;
+		SunsTransform = gameObject.transform;
+		currenttime = TimeSpan.FromSeconds (0f);
+		speed = 1000;
+		timetext = FindObjectOfType<Canvas> ().GetComponent<Text>();
+	}
 
 	// Update is called once per frame
 	void Update ()
@@ -34,17 +43,16 @@ public class DayNight : MonoBehaviour {
 		{
 			days += 1;
 			time = 0;
-	}
+		}
 		currenttime = TimeSpan.FromSeconds (time);
 		string[] temptime = currenttime.ToString ().Split (":" [0]);
-		timetext.text = temptime [0] + ":" + temptime (1);
-
+		timetext.text = temptime [0] + ":" + temptime [1];
 		SunsTransform.rotation = Quaternion.Euler (new Vector3 ((time - 21600) / 86400 * 360, 0, 0));
+		//Debug.Log (gameObject.transform.rotation.eulerAngles);
 		if (time < 43200)
-			intensity = 1 - (34200 - Time) / 43200;
+			intensity = 1 - (34200 - time) / 43200;
 		else
 			intensity = 1 - ((43200 - time) / 43200 * -1);
-
 		RenderSettings.fogColor = Color.Lerp (fognight, fogday, intensity * intensity);
 
 		Sun.intensity = intensity;

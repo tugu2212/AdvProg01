@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-	Transform target;
+	public Transform target;
 	public int Health = 100;
 	public float moveSpeed = 1;
 	public float turnSpeed = 50f;
@@ -12,7 +12,8 @@ public class Enemy : MonoBehaviour {
 	int Dmg = 0;
 	int Range = 15;
 	bool TargetPlayer = false;
-	public Transform myTransform; 
+	public float targetHP;
+//	public Transform myTransform; 
 	public Enemy(){
 			
 	}
@@ -21,18 +22,32 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () { 
 		target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
-		Debug.Log (target);
-		Debug.Log (target.position);
+		targetHP = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControl> ().health;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//To move forward and back 
-		transform.LookAt(target);
-		transform.Translate (Vector3.forward * 1 * Time.deltaTime);
-		 
+		transform .LookAt(target, new Vector3(0, 1, 0));//.LookAt(target);
+		if (!inRange (target)) {
+			transform.Translate (Vector3.forward * 1 * Time.deltaTime);
+		} else {
+			Attack (target.gameObject.GetComponent<PlayerControl>());
+		}
 		} 
 	void OnTriggerEnter(Collider other){
 		Debug.Log ("Trigger");
+	}
+
+	bool inRange(Transform pt){
+		if(Vector3.Distance(gameObject.transform.position, pt.position) < 2f){
+		//if(Vector3.Distance(transform.position){
+			return true;
+		}
+			return false;
+	}
+
+	void Attack(PlayerControl pt){
+		pt.TakeDamage (10);
 	}
 }
