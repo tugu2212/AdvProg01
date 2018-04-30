@@ -6,6 +6,7 @@ public class minimapfollow : MonoBehaviour {
 	Transform player;
 	public float camHeight;
 	public PlayerControl pc;
+	RectTransform arrow;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
@@ -15,6 +16,7 @@ public class minimapfollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		gameObject.transform.position = new Vector3(player.position.x, camHeight, player.position.z);
 
 	}
