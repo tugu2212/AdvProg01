@@ -5,9 +5,9 @@ using UnityEngine;
 public class Spawner : MonoBehaviour {
 
     public GameObject enemy;                // The enemy prefab to be spawned.
-    public float spawnTime = 3f;            // How long between each spawn.
+    public float spawnTime = 3.0f;
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
-
+    public List<GameObject> enemyPool;
 
     void Start()
     {
@@ -22,6 +22,10 @@ public class Spawner : MonoBehaviour {
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
 
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
-        Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        enemyPool.Add(Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation));
+        if(enemyPool.Count > 5){
+            CancelInvoke("Spawn");
+
+        }
     }
 }
