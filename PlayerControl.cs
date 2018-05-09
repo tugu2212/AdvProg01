@@ -1,9 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
 
+    private CharacterController controller;
+
+    private float verticalVelocity;
+    private float gravity = 14.0f;
+    private float jumpForce = 10.0f;
 	public float speed;
 	public float health;
 	float h;
@@ -14,6 +19,7 @@ public class PlayerControl : MonoBehaviour {
 	BloodSc bs;
 	// Use this for initialization
 	void Start () {
+        controller = GetComponent<CharacterController>();
 		speed  = 10.0f;
 		health = 100.0f;
 		playerRB = gameObject.GetComponent<Rigidbody> ();
@@ -62,11 +68,28 @@ public class PlayerControl : MonoBehaviour {
 			bs.TakeDamage ();
 			health -= 1f;
 		}
-		//save 
-		//gameObject.transform.RotateAround(playerRB.transform.position, )
+        //save 
+        //gameObject.transform.RotateAround(playerRB.transform.position, )
 
-	//	Move (h, v, speed);
+        //	Move (h, v, speed);
+        if (controller.isGrounded)
+        {
+            verticalVelocity = -gravity * Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                verticalVelocity = jumpForce;
+            }
+        }
+        else
+        {
+            verticalVelocity -= gravity * Time.deltaTime;
+        }
 
+        Vector3 moveVector = Vector3.zero;
+        moveVector.x = Input.GetAxis("Horizontal") * 5.0f;
+        moveVector.y = verticalVelocity;
+        moveVector.z = Input.GetAxis("Vertical");
+        controller.Move(moveVector * Time.deltaTime);
 	}
 
 	void Move(float h, float v, float runSpeed)
