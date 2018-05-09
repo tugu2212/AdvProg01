@@ -14,7 +14,7 @@ public class BloodSc : MonoBehaviour {
 	//	Blood = GameObject.Find ("Canvas").GetComponentsInParent<Image> ();
 		blood = gameObject.GetComponent<Image>();
 		pc = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControl> ();
-
+		blood.color = new Color(blood.color.r, blood.color.g, blood.color.b, 0f);
 		showing = false;
 	}
 
@@ -24,20 +24,35 @@ public class BloodSc : MonoBehaviour {
 		timer += Time.deltaTime;
 		pc = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControl> ();
 
-		if (pc.health < 50) {
-		//	showing = true;
-		//	Invoke ("gg", 0f);
-		}
-		else{
-			blood.enabled = false;
+		//if (pc.health < 50) {
+		////	showing = true;
+		////	Invoke ("gg", 0f);
+		//}
+		//else{
+		//	blood.enabled = false;
+		//}
+
+		if (blood.color.a > 0.05f) {
+			Debug.Log (blood.color.a);
+			Debug.Log ("B");
+			blood.color = new Color(blood.color.r, blood.color.g, blood.color.b, blood.color.a * 0.95f);
+		} else{
+			Debug.Log (blood.color.a);
+			Debug.Log ("C");
+			blood.color = new Color(blood.color.r, blood.color.g, blood.color.b, 0f);
+			showing = false;
 		}
 		
 	}
 
 	public void TakeDamage(){
 		if (!showing) {
+			Debug.Log (blood.color.a);
 			showing = !showing;
-			gg ();
+			if (blood.color.a < 0.5f) {
+				blood.color = new Color (blood.color.r, blood.color.g, blood.color.b, 1f);
+			}
+			//	gg ();
 		}
 	}
 

@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour {
 	int Range = 15;
 	bool TargetPlayer = false;
 	public float targetHP;
+	float hitTime;
 //	public Transform myTransform; 
 	public Enemy(){
 			
@@ -21,8 +22,10 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () { 
+		hitTime = Time.realtimeSinceStartup;
 		target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
 		targetHP = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControl> ().health;
+		gameObject.transform.Rotate (-90, 0, 0);
 	}
 	
 	// Update is called once per frame
@@ -48,6 +51,9 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void Attack(PlayerControl pt){
-		pt.TakeDamage (10);
+		if (Mathf.Abs(hitTime - Time.realtimeSinceStartup) > 3) {
+			pt.TakeDamage (10);	
+			hitTime = Time.realtimeSinceStartup;
+		}
 	}
 }
