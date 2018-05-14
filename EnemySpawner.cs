@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class EnemySpawner : MonoBehaviour {
+class EnemySpawner : MonoBehaviour {
 	GameObject[] enemies = new GameObject[2];
 	int spawnPeriod;
 	public int count;
@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour {
 		count = 0;
 		spawnPeriod = 5;
 		for (int i = 0; i < enemies.Length; i++) {
-			enemies[i] = Instantiate(Resources.Load<GameObject>("Enemy"), transform.position, transform.rotation, transform) as GameObject;
+			enemies[i] = Instantiate(Resources.Load<GameObject>("Cylinder"), gameObject.GetComponentInParent<Transform>().position, gameObject.GetComponentInParent<Transform>().rotation) as GameObject;
 			enemies [i].SetActive (false);
 		}
 	}
@@ -24,8 +24,8 @@ public class EnemySpawner : MonoBehaviour {
 					enemies [i].transform.position = transform.position;
 					enemies [i].transform.rotation = transform.rotation;
 					//reset gameobject
-					EnemyMovement em = enemies[i].GetComponent<EnemyMovement>();
-					em.Respawn();
+					Enemy em = enemies[i].GetComponent<Enemy>();
+				//	em.Respawn();
 					enemies [i].SetActive (true);
 					count++;
 					break;
