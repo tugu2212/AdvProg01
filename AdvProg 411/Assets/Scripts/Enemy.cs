@@ -35,7 +35,8 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//To move forward and back 
-		transform .LookAt(target, new Vector3(0, 1, 0));//.LookAt(target);
+	//	transform .LookAt(target, new Vector3(0, 1, 0));//.LookAt(target);
+		transform.LookAt(new Vector3(target.position.x, 0, target.position.z));
 		if (!inRange (target)) {
 			transform.Translate (Vector3.forward * 1 * Time.deltaTime);
 		} else {

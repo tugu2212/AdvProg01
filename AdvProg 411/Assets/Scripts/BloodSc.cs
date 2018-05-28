@@ -47,7 +47,7 @@ public class BloodSc : MonoBehaviour {
 
 	public void TakeDamage(){
 		if (!showing) {
-			Debug.Log (blood.color.a);
+		//	Debug.Log (blood.color.a);
 			showing = !showing;
 			if (blood.color.a < 0.5f) {
 				blood.color = new Color (blood.color.r, blood.color.g, blood.color.b, 1f);

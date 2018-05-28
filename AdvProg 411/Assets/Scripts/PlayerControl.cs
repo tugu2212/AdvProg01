@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour {
 	private CharacterController controller;
@@ -49,6 +50,10 @@ public class PlayerControl : MonoBehaviour {
 			}
 		}
 
+		if (health <= 0) {
+			Invoke ("Die", 1);
+		}
+
 		if (Input.GetKey (KeyCode.Q)) {
 			//	transform.RotateAround (transform.position, new Vector3 (0, 1, 0), 1);
 			transform.Rotate (new Vector3 (0, -1, 0));//, Space.World);
@@ -78,7 +83,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.F)) {
 			bs.TakeDamage ();
-			health -= 1f;
+			health -= 100f;
 		}
 		if (Input.GetKeyDown (KeyCode.Mouse0)) {
 			Attack ();
@@ -96,24 +101,8 @@ public class PlayerControl : MonoBehaviour {
 		moveVector.y = verticalVelocity;
 		moveVector.z = 0.0f;
 		controller.Move (moveVector * Time.deltaTime);
-
-		//save 
-		//gameObject.transform.RotateAround(playerRB.transform.position, )
-
-	//	Move (h, v, speed);
-
 	}
 
-	void Move(float h, float v, float runSpeed)
-	{
-		movement.Set (h, 0f, v);
-		movement = movement.normalized * runSpeed * Time.deltaTime;
-	//	transform.position = transform.position + movement;
-	//	transform.forward
-		transform.position = transform.forward.normalized * speed;
-	//	playerRB.MovePosition (transform.position + movement);
-	//	Vector3.Dot(
-	}
 	public void TakeDamage(int dmg){
 		health -= dmg;
 		bs.TakeDamage ();
@@ -121,5 +110,12 @@ public class PlayerControl : MonoBehaviour {
 	public void Attack(){
 		transform.position += transform.forward.normalized * speed * 0.02f;
 		pAnim.SetTrigger ("attack");
+	}
+
+	public void Die(){
+	//	SceneManager.LoadScene ((SceneManager.GetActiveScene ().buildIndex + 1)%SceneManager.sceneCount); //to next level/
+		SceneManager.LoadScene(0);	//main menu
+	//	Debug.Log(SceneManager.GetSceneAt(0).buildIndex); //log scene index
+		CancelInvoke ();
 	}
 }
