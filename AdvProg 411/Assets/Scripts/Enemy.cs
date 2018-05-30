@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour {
 	public float targetHP;
 	float hitTime;
 	DayNight sun;
+	bool p;
 //	public Transform myTransform; 
 	public Enemy(){
 			
@@ -30,21 +31,34 @@ public class Enemy : MonoBehaviour {
 		gameObject.transform.Rotate (-90, 0, 0);
 
 		sun = GameObject.FindGameObjectWithTag ("Sun").GetComponent<DayNight> ();
+
+		p = GameObject.FindGameObjectWithTag ("Sun").GetComponent<DayNight> ().paused;
 	}
-	
+//	void OnEnable(){
+//		Invoke ("Die", 30f);
+//	}
 	// Update is called once per frame
 	void Update () {
+
+		p = GameObject.FindGameObjectWithTag ("Sun").GetComponent<DayNight> ().paused;
 		//To move forward and back 
 	//	transform .LookAt(target, new Vector3(0, 1, 0));//.LookAt(target);
-		transform.LookAt(new Vector3(target.position.x, 0, target.position.z));
-		if (!inRange (target)) {
-			transform.Translate (Vector3.forward * 1 * Time.deltaTime);
-		} else {
-			Attack (target.gameObject.GetComponent<PlayerControl>());
+		if (p) {
+			hitTime += Time.deltaTime;
+			//gameObject.GetComponent<Rigidbody> ().freezeRotation = true;
 		}
-		if (Health <= 0) {
-			Die ();
-		}
+		else if (!p) {
+			//gameObject.GetComponent<Rigidbody> ().freezeRotation = false;
+			transform.LookAt (new Vector3 (target.position.x, 0, target.position.z));
+			if (!inRange (target)) {
+				transform.Translate (Vector3.forward * 1 * Time.deltaTime);
+			} else {
+				Attack (target.gameObject.GetComponent<PlayerControl> ());
+			}
+			if (Health <= 0) {
+				Die ();
+			}
+		} 
 	} 
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "Player") {
@@ -72,5 +86,8 @@ public class Enemy : MonoBehaviour {
 		sun.Score += Score;//(Score);
 		//drop items
 		gameObject.SetActive (false);
+	//	if (Random.Range (0, 100) > chance) {
+	//		dropItem ();
+	//	}
 	}
 }

@@ -16,12 +16,13 @@ public class DayNight : MonoBehaviour {
 	public float intensity;
 	public Color fogday = Color.grey;
 	public Color fognight = Color.black;
-
+	public bool paused;
 
 	public int speed;
 
 	void Start()
 	{
+		paused = false;
 		Sun = gameObject.GetComponent<Light> ();
 		intensity = Sun.intensity;
 		SunsTransform = gameObject.transform;
@@ -33,7 +34,15 @@ public class DayNight : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		ChangeTime ();
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			paused = !paused;
+		}
+		if (!paused) {
+			ChangeTime ();
+		}
+	//	else if (paused) {
+			//show menu
+	//	}
 	}
 
 	public void ChangeTime()
