@@ -28,9 +28,9 @@ public class Spawner : MonoBehaviour {
 		if (p) {
 			spawnTime += Time.deltaTime;
 		} else if (!p) {
-			Debug.Log (spawnTime - Time.realtimeSinceStartup);
+//			Debug.Log (spawnTime - Time.realtimeSinceStartup);
 			if (Mathf.Abs(spawnTime - Time.realtimeSinceStartup) > spawnPeriod) {
-				Debug.Log ("Spawning");
+//				Debug.Log ("Spawning");
 				for (int i = 0; i < enemyPool.Count; i++) {
 					if (!enemyPool [i].activeInHierarchy) {
 						enemyPool [i].transform.position = transform.position;
