@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour {
 	float hitTime;
 	DayNight sun;
 	bool p;
+	public bool hit = false;
 //	public Transform myTransform; 
 	public Enemy(){
 			
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () { 
+		hit = false;
 		hitTime = Time.realtimeSinceStartup;
 		target = GameObject.FindGameObjectWithTag ("Player").GetComponent<Transform> ();
 		targetHP = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerControl> ().health;
@@ -62,7 +64,7 @@ public class Enemy : MonoBehaviour {
 	} 
 	void OnCollisionEnter(Collision other){
 		if (other.gameObject.tag == "Player") {
-			Debug.Log ("Trigger");
+		//	Debug.Log ("Trigger");
 		}
 	}
 
@@ -81,13 +83,26 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	void Die(){
+	public void Die(){
 		//give points
 		sun.Score += Score;//(Score);
-		//drop items
-		gameObject.SetActive (false);
+		//drop items 
+		 	
+			gameObject.SetActive (false);
+			FindObjectOfType<PlayerControl> ().enemyEntered = false;
+
+	 
 	//	if (Random.Range (0, 100) > chance) {
 	//		dropItem ();
 	//	}
 	}
+	public void takeDamage(int dmg){
+		 
+			Health -= dmg;
+			if (Health <= 0) {
+				Die ();
+			}  
+
+	}
+	
 }

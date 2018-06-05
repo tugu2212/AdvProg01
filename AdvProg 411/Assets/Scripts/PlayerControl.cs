@@ -18,7 +18,10 @@ public class PlayerControl : MonoBehaviour {
 	Vector3 camLookDir;
 	BloodSc bs;
 	Animator pAnim;
-	bool p;
+	bool p; 
+	public bool enemyEntered = false;
+	public Enemy enemy;
+
 	// Use this for initialization
 	void Start () {
 		moveAnim = false;
@@ -26,6 +29,9 @@ public class PlayerControl : MonoBehaviour {
 		jumpForce = 10.0f;
 		speed  = 10.0f;
 		health = 100.0f;
+		// Enemy
+
+ 
 	//	Cursor.lockState = CursorLockMode.Locked;	
 		bs = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<BloodSc>();
 		controller = gameObject.GetComponent<CharacterController> ();
@@ -35,7 +41,7 @@ public class PlayerControl : MonoBehaviour {
 	//	sword = gameObject.
 	}
 	// Update is called once per frame
-	void Update () {
+	void Update () {  
 		p = GameObject.FindGameObjectWithTag ("Sun").GetComponent<DayNight> ().paused;
 		if (!p) {
 			Event e = Event.current;
@@ -116,7 +122,9 @@ public class PlayerControl : MonoBehaviour {
 	}
 	public void Attack(){
 		transform.position += transform.forward.normalized * speed * 0.02f;
-		pAnim.SetTrigger ("attack");
+		pAnim.SetTrigger ("attack"); 
+		if(enemyEntered)
+		enemy.takeDamage(50);
 	}
 
 	public void Die(){
@@ -131,4 +139,14 @@ public class PlayerControl : MonoBehaviour {
 		SceneManager.LoadScene (1);//main menu
 		CancelInvoke();
 	}
+	public void OnCollisionEnter(Collision Col){ 
+	//	Col.collider.GetComponent<Enemy> ().Die();
+		Debug.Log( Col.collider.gameObject);
+		enemy = Col.collider.gameObject.GetComponent<Enemy> ();
+		enemyEntered = true;
+	}
+	public void OnCollisionExit(Collision Col){ 
+		enemyEntered = false;
+	}
+ 
 }
