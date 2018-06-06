@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour {
     void Start()
     {
 		spawnTime = Time.realtimeSinceStartup;
-        spawnPeriod = 1;
+        spawnPeriod = 3f;
         poolSize = 5;
         Init();
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
