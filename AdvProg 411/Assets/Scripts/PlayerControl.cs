@@ -18,14 +18,23 @@ public class PlayerControl : MonoBehaviour {
 	Vector3 camLookDir;
 	BloodSc bs;
 	Animator pAnim;
-	bool p;
+	bool p; 
+	public bool enemyEntered = false;
+	public Enemy enemy; 
+	float hitTime; 
+	public int damage;
+	Transform enemyPosition;
 	// Use this for initialization
 	void Start () {
+		damage = 100;
 		moveAnim = false;
 		gravity = 14.0f;
 		jumpForce = 10.0f;
 		speed  = 10.0f;
 		health = 100.0f;
+		// Enemy
+
+
 	//	Cursor.lockState = CursorLockMode.Locked;	
 		bs = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<BloodSc>();
 		controller = gameObject.GetComponent<CharacterController> ();
@@ -35,7 +44,7 @@ public class PlayerControl : MonoBehaviour {
 	//	sword = gameObject.
 	}
 	// Update is called once per frame
-	void Update () {
+	void Update () {  
 		p = GameObject.FindGameObjectWithTag ("Sun").GetComponent<DayNight> ().paused;
 		if (!p) {
 			Event e = Event.current;
@@ -115,8 +124,15 @@ public class PlayerControl : MonoBehaviour {
 		bs.TakeDamage ();
 	}
 	public void Attack(){
-		transform.position += transform.forward.normalized * speed * 0.02f;
-		pAnim.SetTrigger ("attack");
+		if (Mathf.Abs(hitTime - Time.realtimeSinceStartup) > 2) { 
+			transform.position += transform.forward.normalized * speed * 0.02f;
+			hitTime = Time.realtimeSinceStartup;
+
+			pAnim.SetTrigger ("attack");   
+			if (enemyEntered && checkFront())
+				Invoke ("hit", 1f); 
+		}
+
 	}
 
 	public void Die(){
@@ -131,4 +147,27 @@ public class PlayerControl : MonoBehaviour {
 		SceneManager.LoadScene (1);//main menu
 		CancelInvoke();
 	}
+	public void OnCollisionEnter(Collision Col){ 
+	//	Col.collider.GetComponent<Enemy> ().Die(); 
+
+		enemyPosition = Col.collider.gameObject.GetComponent<Transform>(); 
+		enemy = Col.collider.gameObject.GetComponent<Enemy> ();
+		enemyEntered = true; 
+	}
+	public void OnCollisionExit(Collision Col){ 
+		enemyEntered = false;
+	}
+	void hit()
+	{ 
+		enemy.takeDamage (damage);
+	}
+	bool checkFront(){
+		Vector3 directionToTarget = transform.position - enemyPosition.position;
+		float angel = Vector3.Angle(transform.forward, directionToTarget);
+		if (Mathf.Abs (angel) > 90) {
+			return true;
+		} else
+			return false;
+	}
+ 
 }
