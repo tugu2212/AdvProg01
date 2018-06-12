@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MainHandControl.cs" />
      <Compile Include="Assets\Scripts\AmbientLight.cs" />
      <Compile Include="Assets\Scripts\ArrowMovement.cs" />
      <Compile Include="Assets\Scripts\BloodSc.cs" />
@@ -58,6 +57,7 @@
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\File IO.cs" />
      <Compile Include="Assets\Scripts\Ground.cs" />
+     <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\ItemDatabase.cs" />
      <Compile Include="Assets\Scripts\MainHandControl.cs" />
@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\healthBarScript.cs" />
      <Compile Include="Assets\Scripts\minimapfollow.cs" />
+     <Compile Include="Assets\Scripts\trigger.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -143,10 +144,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro-2017.2-1.0.56-Editor">
- <HintPath>C:/Users/students/Documents/AdvProg01/AdvProg 411/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.2-1.0.56-Editor.dll</HintPath>
+ <HintPath>C:/Users/Batmgln/Documents/AdvProg 411/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.2-1.0.56-Editor.dll</HintPath>
  </Reference>
  <Reference Include="TextMeshPro-2017.2-1.0.56-Runtime">
- <HintPath>C:/Users/students/Documents/AdvProg01/AdvProg 411/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.2-1.0.56-Runtime.dll</HintPath>
+ <HintPath>C:/Users/Batmgln/Documents/AdvProg 411/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.2-1.0.56-Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

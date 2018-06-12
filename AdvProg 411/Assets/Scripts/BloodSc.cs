@@ -19,7 +19,6 @@ public class BloodSc : MonoBehaviour {
 		blood.color = new Color(blood.color.r, blood.color.g, blood.color.b, 0f);
 		showing = false;
 	}
-
 	
 	// Update is called once per frame
 	void Update () {

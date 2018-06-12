@@ -25,8 +25,8 @@ public class CameraControl : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		p = GameObject.FindGameObjectWithTag ("Sun").GetComponent<DayNight> ().paused;
-		if (!p) {
+	//	p = GameObject.FindGameObjectWithTag ("Sun").GetComponent<DayNight> ().paused;
+	//	if (!p) {
 			if (Input.GetAxis ("Mouse ScrollWheel") > 0) {
 				//	Debug.Log (Event.current);
 				distance--;
@@ -47,6 +47,6 @@ public class CameraControl : MonoBehaviour {
 			transform.position = pp.position + rotation * direction;
 			//	pp.position = new Vector3 (pp.position.x, pp.position.y + 3f, pp.position.z);
 			transform.LookAt (pp);
-		}
+	//	}
 	}
 }

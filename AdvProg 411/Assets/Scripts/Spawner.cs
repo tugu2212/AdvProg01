@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour {
     void Start()
     {
 		spawnTime = Time.realtimeSinceStartup;
-        spawnPeriod = 3f;
+        spawnPeriod = 2;
         poolSize = 5;
         Init();
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
@@ -28,9 +28,9 @@ public class Spawner : MonoBehaviour {
 		if (p) {
 			spawnTime += Time.deltaTime;
 		} else if (!p) {
-//			Debug.Log (spawnTime - Time.realtimeSinceStartup);
+		//	Debug.Log (spawnTime - Time.realtimeSinceStartup);
 			if (Mathf.Abs(spawnTime - Time.realtimeSinceStartup) > spawnPeriod) {
-//				Debug.Log ("Spawning");
+		//		Debug.Log ("Spawning");
 				for (int i = 0; i < enemyPool.Count; i++) {
 					if (!enemyPool [i].activeInHierarchy) {
 						enemyPool [i].transform.position = transform.position;
@@ -66,7 +66,8 @@ public class Spawner : MonoBehaviour {
         for (int i = 0; i < poolSize; i++)
         {
             GameObject tempEnemy = Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-            tempEnemy.SetActive(false);
+			tempEnemy.SetActive(false);
+			tempEnemy.GetComponent<Enemy> ().home = gameObject.transform;
             enemyPool.Add(tempEnemy);
         }
     }

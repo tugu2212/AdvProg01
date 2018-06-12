@@ -12,41 +12,40 @@ public class PlayerControl : MonoBehaviour {
 	public float health;
 	public	bool moveAnim;
 	public DeathMenu theDeathScreen;
+	int damage;
 	float h;
 	float v;
 	Vector3 movement;
 	Vector3 camLookDir;
 	BloodSc bs;
 	Animator pAnim;
-	bool p; 
-	public bool enemyEntered = false;
-	public Enemy enemy; 
-	float hitTime; 
-	public int damage;
-	Transform enemyPosition;
+	bool p;
+//	Collider triggerCollider;
+	Enemy e;
+	Spawner spawner;
 	// Use this for initialization
 	void Start () {
-		damage = 100;
 		moveAnim = false;
 		gravity = 14.0f;
 		jumpForce = 10.0f;
 		speed  = 10.0f;
 		health = 100.0f;
-		// Enemy
-
-
+		damage = 100;
 	//	Cursor.lockState = CursorLockMode.Locked;	
 		bs = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<BloodSc>();
 		controller = gameObject.GetComponent<CharacterController> ();
 		pAnim = gameObject.GetComponent<Animator> ();
 		p = GameObject.FindGameObjectWithTag ("Sun").GetComponent<DayNight> ().paused;
-	//	theDeathScreen = 
+		theDeathScreen = GameObject.FindGameObjectWithTag ("DeathMenu").GetComponent<DeathMenu> ();
+		spawner = GameObject.FindGameObjectWithTag ("spawnpoint1").GetComponent<Spawner> ();
+	//	triggerCollider = GetComponent<Collider> ();
 	//	sword = gameObject.
 	}
 	// Update is called once per frame
-	void Update () {  
+	void Update () {
 		p = GameObject.FindGameObjectWithTag ("Sun").GetComponent<DayNight> ().paused;
 		if (!p) {
+			pAnim.enabled = true;
 			Event e = Event.current;
 			//	h = Input.GetAxisRaw ("Horizontal");
 			//	v = Input.GetAxisRaw ("Vertical");
@@ -101,7 +100,9 @@ public class PlayerControl : MonoBehaviour {
 				health -= 100f;
 			}
 			if (Input.GetKeyDown (KeyCode.Mouse0)) {
-				Attack ();
+				Attack (1);
+			} else if (Input.GetKeyDown (KeyCode.Mouse1)) {
+				Attack (2);
 			}
 			if (controller.isGrounded) {
 				verticalVelocity = -gravity * Time.deltaTime;
@@ -116,6 +117,11 @@ public class PlayerControl : MonoBehaviour {
 			moveVector.y = verticalVelocity;
 			moveVector.z = 0.0f;
 			controller.Move (moveVector * Time.deltaTime);
+
+		//	pAnim.speed = 1f;
+		} else if (p) {
+			pAnim.enabled = false;
+		//	pAnim.speed = 0f;
 		}
 	}
 
@@ -123,16 +129,22 @@ public class PlayerControl : MonoBehaviour {
 		health -= dmg;
 		bs.TakeDamage ();
 	}
-	public void Attack(){
-		if (Mathf.Abs(hitTime - Time.realtimeSinceStartup) > 2) { 
-			transform.position += transform.forward.normalized * speed * 0.02f;
-			hitTime = Time.realtimeSinceStartup;
-
-			pAnim.SetTrigger ("attack");   
-			if (enemyEntered && checkFront())
-				Invoke ("hit", 1f); 
+	public void Attack(int mode){
+		transform.position += transform.forward.normalized * speed * 0.02f;
+		if (mode == 1) {
+			pAnim.SetTrigger ("attack");
+		} else {
+			pAnim.SetTrigger ("attack_light");
 		}
-
+		spawner = GameObject.FindGameObjectWithTag ("spawnpoint1").GetComponent<Spawner> ();
+		foreach (GameObject e in spawner.enemyPool) {
+			if((e.GetComponent<Enemy>().inAttackRange) && (checkFront(e.transform))){
+			//	Debug.Log ("Attacking" + e.name);
+				e.GetComponent<Enemy> ().TakeDamage (damage);
+			}
+		}
+		//check enemies in range
+		//give damage
 	}
 
 	public void Die(){
@@ -147,27 +159,28 @@ public class PlayerControl : MonoBehaviour {
 		SceneManager.LoadScene (1);//main menu
 		CancelInvoke();
 	}
-	public void OnCollisionEnter(Collision Col){ 
-	//	Col.collider.GetComponent<Enemy> ().Die(); 
+	//Collision Trigger
+	public void OnTriggerEnter(Collider col){
+		if (col.tag == "Enemy") {
+			e = col.gameObject.GetComponent<Enemy> ();
+			e.inAttackRange = true;
+		}
+	}
 
-		enemyPosition = Col.collider.gameObject.GetComponent<Transform>(); 
-		enemy = Col.collider.gameObject.GetComponent<Enemy> ();
-		enemyEntered = true; 
+	public void OnTriggerExit(Collider col){
+		if (col.tag == "Enemy") {
+			e = col.gameObject.GetComponent<Enemy> ();
+			e.inAttackRange = false;
+		}
 	}
-	public void OnCollisionExit(Collision Col){ 
-		enemyEntered = false;
-	}
-	void hit()
-	{ 
-		enemy.takeDamage (damage);
-	}
-	bool checkFront(){
-		Vector3 directionToTarget = transform.position - enemyPosition.position;
-		float angel = Vector3.Angle(transform.forward, directionToTarget);
-		if (Mathf.Abs (angel) > 90) {
+
+	bool checkFront(Transform tar){
+		Vector3 directionToTarget = transform.position - tar.position;
+		directionToTarget.Normalize ();
+		if (Vector3.Dot (directionToTarget, -transform.forward) > 0.45f) {
+		//	tar.gameObject.GetComponent<Enemy>().TakeDamage(100);
 			return true;
-		} else
-			return false;
+		}
+		return false;
 	}
- 
 }

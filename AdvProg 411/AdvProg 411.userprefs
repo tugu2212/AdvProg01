@@ -1,6 +1,28 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ItemDatabase.cs">
+    <Files>
+      <File FileName="Assets\Scripts\MainHandControl.cs" Line="30" Column="4" />
+      <File FileName="Assets\Scripts\CameraControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DeathMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Spawner.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerControl.cs" Line="46" Column="49" />
+      <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DayNight.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\healthBarScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Item.cs" Line="24" Column="9" />
+      <File FileName="Assets\Scripts\ItemDatabase.cs" Line="30" Column="61" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="23" Column="32" />
+      <File FileName="Assets\Scripts\BloodSc.cs" Line="14" Column="17" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="AdvProg 411" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
