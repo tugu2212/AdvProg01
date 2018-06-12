@@ -1,0 +1,554 @@
+fileFormatVersion: 2
+guid: 939d30f0a8730c84c84c090f92b7856a
+timeCreated: 1526474702
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bone_001
+    100004: Bone_002
+    100006: Bone_003
+    100008: Bone_004
+    100010: Bone_005
+    100012: Bone_006
+    100014: Bone_007
+    100016: Bone_008
+    100018: Bone_009
+    100020: Bone_011
+    100022: Bone_012
+    100024: Bone_013
+    100026: Bone_015
+    100028: Bone_016
+    100030: Bone_017
+    100032: Bone_018
+    100034: Bone_3
+    100036: Hand_L
+    100038: Hand_R
+    100040: HandPlace_L
+    100042: HandPlace_R
+    100044: Leg_L_C
+    100046: Leg_L_IK
+    100048: Leg_R_C
+    100050: Leg_R_IK
+    100052: metarig
+    100054: skull
+    100056: spine_low
+    100058: spine_upper
+    100060: Belt
+    100062: Body_Mesh
+    100064: Hand_L_IK
+    100066: Hand_R_IK_
+    100068: Wrist_L
+    100070: Wrist_R
+    100072: Elbow_L
+    100074: Elbow_R
+    100076: head
+    100078: head_IK
+    100080: head_Pole
+    100082: Bone
+    100084: Sword
+    400000: //RootNode
+    400002: Bone_001
+    400004: Bone_002
+    400006: Bone_003
+    400008: Bone_004
+    400010: Bone_005
+    400012: Bone_006
+    400014: Bone_007
+    400016: Bone_008
+    400018: Bone_009
+    400020: Bone_011
+    400022: Bone_012
+    400024: Bone_013
+    400026: Bone_015
+    400028: Bone_016
+    400030: Bone_017
+    400032: Bone_018
+    400034: Bone_3
+    400036: Hand_L
+    400038: Hand_R
+    400040: HandPlace_L
+    400042: HandPlace_R
+    400044: Leg_L_C
+    400046: Leg_L_IK
+    400048: Leg_R_C
+    400050: Leg_R_IK
+    400052: metarig
+    400054: skull
+    400056: spine_low
+    400058: spine_upper
+    400060: Belt
+    400062: Body_Mesh
+    400064: Hand_L_IK
+    400066: Hand_R_IK_
+    400068: Wrist_L
+    400070: Wrist_R
+    400072: Elbow_L
+    400074: Elbow_R
+    400076: head
+    400078: head_IK
+    400080: head_Pole
+    400082: Bone
+    400084: Sword
+    4300000: HandPlace_R
+    4300002: HandPlace_L
+    4300004: Bone_002
+    4300006: skull
+    4300008: Body_Mesh
+    4300010: Belt
+    7400000: idle
+    7400002: idle
+    7400004: go
+    7400006: attack
+    7400008: idle
+    7400010: metarigAction_002
+    9500000: //RootNode
+    13700000: Bone_002
+    13700002: HandPlace_L
+    13700004: HandPlace_R
+    13700006: skull
+    13700008: Belt
+    13700010: Body_Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: metarigAction_002
+      takeName: metarigAction_002
+      firstFrame: 107
+      lastFrame: 109
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Belt
+        weight: 1
+      - path: Body_Mesh
+        weight: 1
+      - path: metarig
+        weight: 1
+      - path: metarig/Hand_L_IK
+        weight: 1
+      - path: metarig/Hand_L_IK/Elbow_L
+        weight: 1
+      - path: metarig/Hand_R_IK_
+        weight: 1
+      - path: metarig/Hand_R_IK_/Elbow_R
+        weight: 1
+      - path: metarig/Leg_L_IK
+        weight: 1
+      - path: metarig/Leg_L_IK/Leg_L_C
+        weight: 1
+      - path: metarig/Leg_R_IK
+        weight: 1
+      - path: metarig/Leg_R_IK/Leg_R_C
+        weight: 1
+      - path: metarig/spine_low
+        weight: 1
+      - path: metarig/spine_low/Bone_004
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005/Bone_006/Bone_007
+        weight: 1
+      - path: metarig/spine_low/Bone_015
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016/Bone_017/Bone_018
+        weight: 1
+      - path: metarig/spine_low/spine_upper
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_001
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_001/Bone_002
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008/Wrist_L
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008/Wrist_L/Hand_L
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012/Wrist_R
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012/Wrist_R/Hand_R
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: go
+      takeName: Default Take
+      firstFrame: 1
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Belt
+        weight: 1
+      - path: Body_Mesh
+        weight: 1
+      - path: metarig
+        weight: 1
+      - path: metarig/Hand_L_IK
+        weight: 1
+      - path: metarig/Hand_L_IK/Elbow_L
+        weight: 1
+      - path: metarig/Hand_R_IK_
+        weight: 1
+      - path: metarig/Hand_R_IK_/Elbow_R
+        weight: 1
+      - path: metarig/Leg_L_IK
+        weight: 1
+      - path: metarig/Leg_L_IK/Leg_L_C
+        weight: 1
+      - path: metarig/Leg_R_IK
+        weight: 1
+      - path: metarig/Leg_R_IK/Leg_R_C
+        weight: 1
+      - path: metarig/spine_low
+        weight: 1
+      - path: metarig/spine_low/Bone_004
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005/Bone_006/Bone_007
+        weight: 1
+      - path: metarig/spine_low/Bone_015
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016/Bone_017/Bone_018
+        weight: 1
+      - path: metarig/spine_low/spine_upper
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_001
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_001/Bone_002
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008/Wrist_L
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008/Wrist_L/Hand_L
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012/Wrist_R
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012/Wrist_R/Hand_R
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: attack
+      takeName: Default Take
+      firstFrame: 62
+      lastFrame: 109
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Belt
+        weight: 1
+      - path: Body_Mesh
+        weight: 1
+      - path: metarig
+        weight: 1
+      - path: metarig/Hand_L_IK
+        weight: 1
+      - path: metarig/Hand_L_IK/Elbow_L
+        weight: 1
+      - path: metarig/Hand_R_IK_
+        weight: 1
+      - path: metarig/Hand_R_IK_/Elbow_R
+        weight: 1
+      - path: metarig/Leg_L_IK
+        weight: 1
+      - path: metarig/Leg_L_IK/Leg_L_C
+        weight: 1
+      - path: metarig/Leg_R_IK
+        weight: 1
+      - path: metarig/Leg_R_IK/Leg_R_C
+        weight: 1
+      - path: metarig/spine_low
+        weight: 1
+      - path: metarig/spine_low/Bone_004
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005/Bone_006/Bone_007
+        weight: 1
+      - path: metarig/spine_low/Bone_015
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016/Bone_017/Bone_018
+        weight: 1
+      - path: metarig/spine_low/spine_upper
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_001
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_001/Bone_002
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008/Wrist_L
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008/Wrist_L/Hand_L
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012/Wrist_R
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012/Wrist_R/Hand_R
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle
+      takeName: metarigAction_002
+      firstFrame: 111
+      lastFrame: 130.8
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Belt
+        weight: 1
+      - path: Body_Mesh
+        weight: 1
+      - path: metarig
+        weight: 1
+      - path: metarig/Hand_L_IK
+        weight: 1
+      - path: metarig/Hand_L_IK/Elbow_L
+        weight: 1
+      - path: metarig/Hand_R_IK_
+        weight: 1
+      - path: metarig/Hand_R_IK_/Elbow_R
+        weight: 1
+      - path: metarig/head_IK
+        weight: 1
+      - path: metarig/head_IK/head_Pole
+        weight: 1
+      - path: metarig/Leg_L_IK
+        weight: 1
+      - path: metarig/Leg_L_IK/Leg_L_C
+        weight: 1
+      - path: metarig/Leg_R_IK
+        weight: 1
+      - path: metarig/Leg_R_IK/Leg_R_C
+        weight: 1
+      - path: metarig/spine_low
+        weight: 1
+      - path: metarig/spine_low/Bone_004
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005/Bone_006
+        weight: 1
+      - path: metarig/spine_low/Bone_004/Bone_005/Bone_006/Bone_007
+        weight: 1
+      - path: metarig/spine_low/Bone_015
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016/Bone_017
+        weight: 1
+      - path: metarig/spine_low/Bone_015/Bone_016/Bone_017/Bone_018
+        weight: 1
+      - path: metarig/spine_low/spine_upper
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_001
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_001/head
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008/Wrist_L
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_003/Bone_008/Wrist_L/Hand_L
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012/Wrist_R
+        weight: 1
+      - path: metarig/spine_low/spine_upper/Bone_011/Bone_012/Wrist_R/Hand_R
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: spine_low
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,4 @@
+Player : health = 100 : speed : 50
+Level : monsters = 20 : active : 20
+monsters.1 : health = 10 : position : 20 20 20
+monsters.2 :
